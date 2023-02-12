@@ -22,13 +22,10 @@ class SettingsScreen extends StatelessWidget {
       body: BlocConsumer<ShopCubit,ShopStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          var model=ShopCubit.get(context).userModel;
-          if(model !=null){
-            nameController.text=model.data!.name ;
+            var model=ShopCubit.get(context).userModel!;
+            nameController.text=model.data!.name! ;
             PhoneController.text=model.data!.phone!;
             emailController.text=model.data!.email!;
-
-          }
          return  ConditionalBuilder(
            builder: (context) => Center(
              child: SingleChildScrollView(
